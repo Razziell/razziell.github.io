@@ -1,3 +1,9 @@
+Highlights & Device Specific Changes:
+Build type: Beta
+Device: Mi 9T (davinci)
+Device maintainer: Razziell
+Required firmware: Latest Global
+
 ====================
      04-04-2022
 ====================
