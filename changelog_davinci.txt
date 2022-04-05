@@ -5,6 +5,81 @@ Device maintainer: Razziell
 Required firmware: Latest Global
 
 ====================
+     04-05-2022
+====================
+Device:
+
+Fix dc-dimming in kernel
+Enable supports Smart Pixels
+
+
+   * frameworks/base
+b04e885777d3 Use Tuner API for reTicker settings
+4fbe2033b79f Properly update view for reTicker
+0884573e9834 Feature: reticker [1/2]
+f7efae9f41d2 SystemUI: mark smartpixels as a trusted overlay
+ae021b650966 Smart Pixels: Update default grid pattern
+dc525e5df2d7 SystemUI: Add Smart Pixels tile
+b2432763aea6 Smart Pixels: Dynamically register receiver
+bd94a540dbec Smart Pixels: Switch to registered receiver
+231f475e5776 SystemUI: Smart Pixels [1/2]
+a7065e8b79c3 SystemUI: screen-dimmer-pixel-filter
+ff15ef0fa5a5 fixup! SystemUI: Update monet according to new sysui stub
+ddf0f0548269 SystemUI: Fix the unlock sound played repeatedly
+ce7c39c1f935 SystemUI: Whitelist new priv-app permissions
+
+   * hardware/qcom-caf/sm8150/display
+f53a76f4 gralloc: Fix RAW10/12 buffer alignment for trinket
+
+   * packages/apps/Settings
+76c108357b Settings: Remove conflicting color modes array
+3d5bfdaba6 Merge 'lineage-19.1' into 12.1
+
+   * packages/apps/SetupWizard
+5ba7658 Eye see what you did there
+1e09563 SetupWizard: Bring it on our side
+2265ea5 Ship as crDroid based on LOS
+4914e63 SUW: fix a crash in PhoneMonitor
+1c34055 SetupWizard: Use correct updater package
+0fa8417 NavigationSettings: Show the checkbox if requested during the hide animation
+
+   * packages/apps/Updater
+321bc1f Updater: switch to my OTA option
+
+   * packages/apps/crDroidSettings
+0f57ab3 Feature: reticker [2/2]
+
+   * vendor/lineage
+41df2ad4 overlay: Block GMS chimera service to fix drain
+a34789c4 overlay: Update configs from pixel
+d1a1dfb6 overlay: configure SQLite to operate in MEMORY mode
+d451803f overlay: [temporary] don't report statementservice crashes
+ae1737c9 device_config: Convert location indicators to soft config
+b68af460 device_config: Update Live Caption configs for Pixel 6
+190ff763 device_config: Update Now Playing database to 2021-12-12
+169ae3c0 build: Import game_overlay permission for GameDashboard
+a148c6da overlay: Start using custom systemui vendor service
+403685fd device_config: Enable maching learning back gesture
+72cb3074 overlay: SystemUI: Switch to custom SystemUI factory
+a4f3ebd0 overlay: Add pixel settings defined earlier
+223a4d28 overlay: Force disable ambient music components
+85bad34a device_config: Update config
+6be35b32 overlay: Update rounded corner dimens from Pixel
+2a93706e crdroid: Let adb unsecure only for eng builds
+2488f7b1 kernel: Use newest clang for kernel build by default
+4a6b5d10 build: Add quick tap permissions and flag
+1a2f50f7 soong: Update camera_in_mediaserver_defaults
+609ee2f7 vendor: soong: Add camera_needs_client_info_lib
+b61960d9 crdroid: Generate OTA json at build time
+20d8693d crdroid: Drop custom adb drawable
+c376fe2d crdroid: Clean up wallpaper overlay
+ac785e37 crdroid: Change backuptool version for GMS builds
+3e4645b7 build: Ship as crDroid based on LOS
+c04878f6 crdroid: Remove TrebuchetOverlay
+3d6c44dd crdroid: Add changelog script
+5ff9f20c crdroid: Moved bootanimation to addons
+
+====================
      04-04-2022
 ====================
 
@@ -19,8 +94,13 @@ Required firmware: Latest Global
 09fde66d7c Launcher3: style grid drop down preference accordingly
 64c3dbae3a Launcher3: make sure getImeBgTaskbar value gets reset when going to launcher
 
-   * packages/apps/Updater
-1efbf53 Updater: change check for updates url
+   * packages/apps/Settings
+a60eef3b5b Settings: Fix NPE when launching accessibility settings from GMS SUW
+222821fca4 Settings: Allow using legacy VPN types
+6d1f2a5e54 Settings: Fix the failing strings
+
+   * vendor/lineage
+8ac7d312 build: tasks: kernel: Rework kernel fragments handling
 
 ====================
      04-03-2022
@@ -697,11 +777,6 @@ de039251dd Settings: Add missing illustration for camera gesture
 aa15445 addons: Add SettingsIntelligence prebuilt
 9e028b0 addons: Remove outdated app icon overlays
 
-   * vendor/lineage
-b09c5b96 overlay: Update configs from pixel
-ca3b6de0 overlay: Update SystemUI components
-b7a0b1fd overlay: configure SQLite to operate in MEMORY mode
-
 ====================
      04-02-2022
 ====================
@@ -757,9 +832,6 @@ a3ac2d4db DevelopmentFragment: Rely on ADBRootService::isSupported()
    * vendor/addons
 0054938 addons: Use PRODUCT_PACKAGE_OVERLAYS
 
-   * vendor/lineage
-ff640fa1 Revert "crdroid: Add lawnicons overlay"
-
    * vendor/qcom/opensource/usb
 6aec33b usb: Add support for SEC specific enableUsbDataSignal path
 
@@ -775,6 +847,9 @@ ff640fa1 Revert "crdroid: Add lawnicons overlay"
 7aab0b227 privacy: Hook Trust with LineageParts
 d8729f0fc TVTrustPreferences: Remove unused isTelephony method
 
+   * vendor/lineage
+363eeb55 partner_gms: Support makefile variants for GMS variants
+
    * vendor/nxp/opensource/sn100x/halimpl
 95b8949b SN100x/halimpl/libnxpparser: Guard with soong namespace
 
@@ -788,15 +863,15 @@ daa29c1 Update arm{,64} Chromium Webview to 100.0.4896.58
    * packages/apps/Camera2
 c8f7b2f3b Remove Help & Feedback option from filmstrip
 
+   * packages/apps/SetupWizard
+2c96322 SetupWizardUtils: Remove unused isMobileDataEnabled method
+
 ====================
      03-30-2022
 ====================
 
    * frameworks/base
 3edf088aa01b VolumeDialog: Display default row when active row is notification
-
-   * packages/apps/SetupWizard
-57a879b Merge pull request #1 from Terminator-J/12.1-test
 
    * packages/apps/crDroidSettings
 99ceecf Merge pull request #898 from ShevT/12.1
@@ -847,6 +922,11 @@ fec67e9 Automotive uses AVRCP controller requiring this prop
 
    * frameworks/opt/telephony
 022307c4e UiccSlot: Validate hotswap prompt component properly
+51c126c60 Fix the data of nDDS sub can't be tore down
+2ea865940 Fix DDS switch type on call end
+0c4dfb804 Stop evaluating default data SUB before SUB info is ready
+2c62badfa Telephony: Add null check for operator
+afa5f02d7 Telephony: Fix crash while updating Operator Name
 
    * libcore
 5535e2d58b constify JNINativeMethod tables
@@ -854,25 +934,12 @@ fec67e9 Automotive uses AVRCP controller requiring this prop
    * packages/apps/FaceUnlockService
 845c59f Ship as crdroid faceunlock service
 
-   * packages/apps/SetupWizard
-eb548a8 Eye see what you did there
-
    * packages/services/Telecomm
 c12f5ba31 Phone ringtone setting for Multi SIM device [3/3]
-
-   * vendor/lineage
-34ee1f74 overlay: [temporary] don't report statementservice crashes
 
 ====================
      03-28-2022
 ====================
-
-   * frameworks/opt/telephony
-51c126c60 Fix the data of nDDS sub can't be tore down
-2ea865940 Fix DDS switch type on call end
-0c4dfb804 Stop evaluating default data SUB before SUB info is ready
-2c62badfa Telephony: Add null check for operator
-afa5f02d7 Telephony: Fix crash while updating Operator Name
 
    * packages/apps/FaceUnlockService
 1c5594a Automatic translation import
@@ -914,6 +981,9 @@ da5feddc3e Launcher3: Add uninstall button to system shortcuts
 e92f17a crdroid: Remove pixel nav animation for now
 1e6bfc4 New Crowdin updates (#895)
 
+   * vendor/addons
+a3417e8 addons: Update google prebuilts
+
 ====================
      03-27-2022
 ====================
@@ -938,6 +1008,10 @@ d4f7a354ee Make build ID simple
 cba3014faf build: Add ro.crdroid.device
 0bf1b6ed8c Merge tag 'android-12.1.0_r2' into staging/lineage-19.1_merge-android-12.1.0_r2
 
+   * packages/apps/DeskClock
+c9f907996 DeskClock: Remove legacy support
+2ac0bdfce DeskClock: Fix left button display
+
    * packages/apps/Launcher3
 8ed52201cb Launcher3: Use custom LocalColorExtractor implementation
 03a49a465b Launcher3: Allow changing max lines for app label
@@ -958,40 +1032,4 @@ a53e1563e2 Add ripple animation to task menu items
 
    * packages/apps/crDroidSettings
 f153818 crdroid: Remove not expanded mode for QS brightness slider
-
-   * vendor/addons
-a3417e8 addons: Update google prebuilts
-
-   * vendor/lineage
-de34a267 device_config: Convert location indicators to soft config
-815b63ac crdroid: Add lawnicons overlay
-
-====================
-     03-26-2022
-====================
-
-   * device/lineage/atv
-0b9b740 atv: overlay: Update to reflect LineageParts move to system_ext
-
-   * external/arm-optimized-routines
-82c8c8a Add build system and infra for the pl directory
-
-   * packages/apps/DeskClock
-c9f907996 DeskClock: Remove legacy support
-2ac0bdfce DeskClock: Fix left button display
-
-   * packages/apps/crDroidSettings
-94c4e39 crdroid: Remove QS battery location settings
-
-   * system/libhwbinder
-3c8d1bb Merge pull request #2 from raystef66/12.1
-b07e6f0 Revert "Disallow shrinking threadpool size once started." * Reason: Breaks camera stack on kona.Revert "Disallow shrinking threadpool size once started."
-
-   * system/update_engine
-3972498e update_engine: Always disable signature and downgrade checks
-15f0e11b Revert "update_engine: Run backuptool only in debuggable builds"
-805bc58e Revert "Force PrepareSnapshotPartitionsForUpdate to fail in recovery"
-
-   * tools/repohooks
-d9aa634 checkpatch: update to 5.17
 
