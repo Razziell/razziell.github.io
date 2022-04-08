@@ -5,6 +5,36 @@ Device maintainer: Razziell
 Required firmware: Latest Global
 
 ====================
+     04-08-2022
+====================
+
+   * bionic
+5398cf44b libc: arm64: Merge MTE versions of strcpy/stpcpy/strcmp/strncmp
+6c6c8d3f1 linker: Add support for opening zip files by fd paths
+
+   * bootable/recovery
+6098b297 recovery: Only warn on SPL downgrade
+1061eca8 recovery: Skip verifying packages altogether
+afdcadc8 Revert "recovery: New install/progress animation"
+caf14a2d recovery: rebrand to crDroid
+0b1ddac6 recovery: Drop useless version date
+97cc5f7c recovery: Switch to crDroid props
+8e46340e recovery: Make recovery usable on user builds
+975d24a1 fixup! volume_manager: Move bind/mount failure from ERROR to WARN
+
+   * frameworks/av
+159191f590 Merge pull request #17 from ShevT/12.1
+
+   * packages/apps/Dialer
+b6ed946ce Merge pull request #7 from ShevT/12.1
+
+   * packages/apps/Updater
+33f1ac0 Updater: switch to my OTA option
+
+   * vendor/lineage
+dc75ef36 config: Disable remote keyguard animation until it's fixed
+
+====================
      04-07-2022
 ====================
 
@@ -17,17 +47,91 @@ c6cd3a2 manifest: Track AudioFx
 57865c9 Merge 'lineage-19.1' into 12.1
 0478672 manifest: Enable vendor/crowdin
 cc9439e manifest: Track our own packages for icons
+71a2001 manifest: Untrack qcom sepolicy
 
-   * bionic
-5398cf44b libc: arm64: Merge MTE versions of strcpy/stpcpy/strcmp/strncmp
-6c6c8d3f1 linker: Add support for opening zip files by fd paths
+   * build/make
+c0295a34cb Use Unix epoch time for build number
+03ad3691a3 core: Disable Dalvik lock contention logging
+02efb3fae9 combo: Add cortex-a76 to known v8-2a cores
+9e7164027f envsetup: Prefer setting ccache compress as command line parameter
+1e0e133743 Automatically set CCACHE_EXEC to the system's ccache
+c4350cc707 build: execute changelog generator script
+cf11ba2061 build: Add ANSI name and build info
+dfae58acb7 Make build ID simple
+6d1aa0e8bb build: Always use release-keys
+0948524427 build: Add backuptool by default
+070a9d281e envsetup: Automatically set CCACHE_EXEC to the system's ccache
+fd38ec2b5c build: Add ro.crdroid.device
 
    * external/ant-wireless/ant_service
 c178182 ant_service: Bring in the new icon
 
    * frameworks/av
-159191f590 Merge pull request #17 from ShevT/12.1
 18bcfc5617 HACK: libcameraservice: Make system cameras available to all camera apps
+6a671cdb97 av: Remove restrictions for system audio record [2/2]
+f28d51ed50 Add support per-app volume [1/3]
+b20432bf59 Increase max dimensions for mpeg4 decoder in media_codecs_sw.xml
+0106e84254 Select low latency path during voice call for voice stream
+d7abfa63cd Fix -Wbitwise-instead-of-logical
+e523a4a5b2 WifiDisplaySource: allow overriding max wfd resolution with prop
+0692e5eeca GraphicBufferSource: Enable timestamp snapping in timelapse mode
+9860280e97 libstagefright: Allow HFR-60 in HAL-3 recording
+505a696f07 libaudioclient: fix deadlock during apm initialization
+9692326662 aaudio: set primary flag for AAUDIO_PERFORMANCE_MODE_NONE
+a7e5a64c01 Add NULL check to popFromStashAndRegister.
+b67e62e674 CCodec: Fix null check
+b92161e16b codec2: Avoid invalid access to output format while print
+5948792d34 codec2: add smoothfactor when checking n-th work
+58c7de0b1a CCodec: fix handling buffers in extra slots
+3d79b974f7 CCodec: FrameReassembler to accept 0-size frames
+b06dfa6422 CCodec: convert audio decoder output PCM format
+892de437f6 Codec2: Detect and release component if the client process terminates
+b1ff84f372 C2SoftDec: Align stride to 128 for avc, hevc and mpeg2 decoders
+b6ccfc42c6 audiopolicy: engineconfigurable: prevent illegal map access
+c2e80612e5 Fix logic error in SkipCutBuffer.cpp
+8c15548a06 av: Remove assert if set preview target fails with CameraSource
+cca794b2a2 audioflinger: fix missing track metadata
+431630e0e9 Duration field is 64 bits
+8e4afec376 audio: Fix AudioTrack stuck while interrupting waitStreamEndDone
+2249848071 codec2: a workaround to solve backward compatibility issue
+b9d364b7a6 libstagefright: Configure camcorder encoder session with "CONFIGURE_FLAG_USE_BLOCK_MODEL" flag
+ac3b26e5ba camera: Workaround for GCC-compiled HAL3 drivers
+30eb800ae8 apex: Replace writepid with task_profiles command for cgroup migration
+b717957b5b mediaextractor: Replace writepid with task_profiles command for cgroup migration
+c5ed287add mediacodec: Replace writepid with task_profiles command for cgroup migration
+bb89da553c codec2: Replace writepid with task_profiles command for cgroup migration
+a27f63afc9 drmserver: Replace writepid with task_profiles command for cgroup migration
+43147d1487 clearkey: Replace writepid with task_profiles command for cgroup migration
+2e4dfeadb3 MediaMetrics: fix error for compiler update
+b138965401 Suppress ordered-compare-function-pointers warning
+4ea7b74a97 Track elapsed time for 'waitStreamEnd' timeout
+c1ee164c61 C2 decoders: Workaround for cases where RGBA1010102 isn't supported
+9457ec6109 av: disable some logspilling during playback
+a0e364fcb3 libstagefright: Fix memory leak due to lock timeout
+a8f214c847 libstagefright: use 64-bit usage for native_window_set_usage
+d20d3b784e libstagefright: Free buffers on observer died
+30079d073b stagefright: ACodec: Resolve empty vendor parameters usage
+a618a3919c stagefright: omx: Don't signal dataspace change on legacy QCOM
+8f1f182bad libstagefright: Support YVU420SemiPlanar camera format
+68b0b45693 nuplayer: Avoid crash when codec fails to load
+d22792a5a5 WifiDisplaySource: raise supported resolution to 1920x1080p60
+4c6ca66b36 camera/media: Support legacy HALv1 camera in mediaserver
+ee2f8d3568 libcameraservice: add TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB
+e35286938e Camera: Fix ZSL_STILL_CAPTURE condition
+8e6d214c02 Camera: Avoid roundBufferDimensionsNearest for AIDE2 YUV streams
+dd82910c43 Camera: Flush Improvements - Result drain optimization
+763a861dda Merge rest of privileged client camera stream bypass
+e375f2db10 Camera: Master callback mode support for MCX raw
+40776766c0 Camera: Master callback mode support for MCX raw
+79cd90e2b6 Camera: Support raw stream creation for priviledged APPs
+334da9fef4 camera: Allow devices to load custom CameraParameter code
+16afbfb949 camera: include: Don't override possible overlayed header
+732326c3c4 camera: Don't segfault if we get a NULL parameter
+e1d591b7c6 Camera: Miscellaneous fixes in QDataCallback and binder death scenarios.
+8c06782335 camera: Allow to use boottime as timestamp reference
+070acd3c8c Request to reset effect buffer in clearInputBuffer
+9c68a514bf Camera: Add support for preview frame fd
+bfdc787537 stagefright: add changes related to high-framerates in CameraSource
 
    * frameworks/base
 1171113aac28 SystemUI: QuickStatusBarHeaderController: Remove ColorExtractor listener
@@ -585,14 +689,50 @@ f9d59f03e77f Biometrics: Allow disabling of fingerprint cleanups
 bc2af9300a5e SystemUI: Fix the unlock sound played repeatedly
 0f3827042861 fonts: Use variable font for Roboto Regular
 
+   * lineage-sdk
+14dce9e9 Battery light: 100% charged level (3/3)
+51a31a76 Network traffic mode for status bar [1/3]
+2d006c51 NotificationLights: Allow overriding for all apps [1/2]
+1d875f5d Add toggle to allow advanced restart on secured lockscreen[1/2]
+57a42cb7 lineage-sdk: Enable advanced reboot by default
+d0016ed2 sdk: Add On-The-Go Mode to power menu constants
+f2ef9026 Add settings for brightness slider improvements
+25418b54 Add more device key actions [1/3]
+ac49ce9d Add device key action to take screenshot [1/3]
+b2be11dc Add device key action to toggle flashlight [1/3]
+fb1ad600 lineage-sdk: Remove setting loading for FORCE_SHOW_NAVBAR
+895daaa1 Allow value to hide the clock
+4b5eeabb Allow value 3 for status bar quick pull down
+3f2fccd3 lineage-sdk: Try loading default setting value for switch
+d300dc86 sdk: Kill los versioning
+b4c2bdd6 sdk: Set summary automatically if required
+707a5c69 sdk: Kill trust interface hint on first boot
+0731ae43 crdroid: Do better for version pref
+d6d57c6d Disable by livedisplay by default
+6454bca1 sdk: Map to ro.modversion
+46b76e3c Ship as crDroid based on LOS
+
    * packages/apps/Camera2
 ddb7efe09 Camera2: Bring in the new icon
+
+   * packages/apps/CellBroadcastReceiver
+18377dd9 CellBroadcastReceiver: Bring in the new icon
 
    * packages/apps/Contacts
 fd63e3ed3 Contacts: Bring in the new icon
 
+   * packages/apps/DeskClock
+c06840e23 DeskClock: Bring in the new icon
+62092ee76 DeskClock: Remove compatibility to old APIs
+d3a3ae6d8 DeskClock: Material Me? No YOU!
+57f87efdf DeskClock: Remove legacy support
+c95de5d77 DeskClock: Fix left button display
+f67538bcb DeskClock: Add FLAG_IMMUTABLE
+9f480689d DeskClock: Add gradle
+a9a9f47ef DeskClock: Make sure int values are unique
+0864b85fc DeskClock: Remove unused drawables
+
    * packages/apps/Dialer
-b6ed946ce Merge pull request #7 from ShevT/12.1
 cb0097f9d InCallUI: SmartMute
 1b9bd91f0 dialer: Add back missing priv-app permission
 28a40853e Add missing permissions to Dialer
@@ -604,12 +744,58 @@ f17436838 Dialer: remove unused drawables
 47dc56627 VVM sync failed
 bea006f28 Dialer: Move Call Recordings from Music to Recordings folder
 d012008d4 Dialer: Manifest: Enable READ_EXTERNAL_STORAGE permission
+44dd9d3b4 Dialer: Bring in the new icon
+3f0cabf90 Dialer: use Material You colors
+334ee4619 Fix Dialer memory leaks
+5cb689541 Dialer: Add option to disable proximity sensor
+1d15f10b6 Dialer: Fix video call simulation
+b54fe36ed Dialer: CallLogFragment: Move Un-registering call log observer to destroy
+3af1838ad Dialer: Add autorecord feature
+1d2e3b18f Dialer: CallRecordingAutoMigrator: Handle all exceptions
+36a037cfc Dialer: Make recording names sortable
+7382f2c59 Dialer: Enable call recording for all
 
    * packages/apps/Eleven
 4a870fc7 Eleven: Bring in the new icon
 
+   * packages/apps/EmergencyInfo
+5e4d19c EmergencyInfo: Bring in the new icon
+
+   * packages/apps/Etar
+c19481c1 Etar: Bring in the new icon
+ef48cfb3 Etar: Use system theme by default
+
    * packages/apps/Jelly
 259a596 Jelly: Bring in the new icon
+
+   * packages/apps/Launcher3
+fda4138560 New Crowdin updates (#221)
+
+   * packages/apps/LineageParts
+8d6d4ff Trust: Add option to always disable USB gadgets
+8fe61b5 Update color mode preview from Android 12
+72858b4 Charging Sounds: Consider null uri as silent
+2e4cff9 Move Swap capacitive buttons to Settings [3/3]
+317f236 Disable unused components
+ea2c3c6 Kill redundant search fun party
+ae5addf Make trust interface less boring
+5899e8f Add initial crDroid stats support
+af4a8a0 stats: Mod version switched to crdroid version
+98300e5 Ship as crDroid based on LOS
+
+   * packages/apps/Messaging
+3dcb704 Messaging: Update checkmark PNG drawable with XML drawable
+6315da7 Messaging: remove unused drawables
+934a008 Messaging: use Material You colors
+aeb6505 Add support for text/vCard and text/vCalendar MIME type
+a4f21e8 Messaging: Bring in the new icon
+
+   * packages/apps/Nfc
+45a7d4e9 Nfc: Bring in the new icon
+0d000706 NativeNfcTag: Treat MIFARE_CLASSIC same as NFC_A in getTechExtras()
+
+   * packages/apps/Profiles
+f37e961 Profiles: Add missing bluetooth permission to fix crash
 
    * packages/apps/Recorder
 3ccf10f Recorder: Bring in the new icon
@@ -732,12 +918,48 @@ d0fbeceb31 Settings: Fix CR version in About menu
 5aab7ae535 Settings: Add missing illustration for camera gesture
 0804689e9c Settings: Bring in the new icon
 
+   * packages/apps/SetupWizard
+04b3198 SetupWizard: Bring in the new icon
+3bbfafd Eye see what you did there
+4dbe94e SetupWizard: Bring it on our side
+435dec8 SUW: fix a crash in PhoneMonitor
+deae4f8 SetupWizard: Use correct updater package
+ddfa20b Ship as crDroid based on LOS
+
+   * packages/apps/Tag
+95ba142 Tag: Bring in the new icon
+
    * packages/apps/ThemePicker
 9d38654 ThemePicker: Override WallpaperCropper
 a885d38 ThemePicker: Bring in the new icon
 
    * packages/apps/TvSettings
 3c45236c5 TvSettings: Bring in the new icon
+
+   * packages/apps/Updater
+d18a2f2 New translations (#24)
+a7237b5 Update Crowdin configuration file
+c2d4030 Updater: Move strings for translation
+56ec944 Updater: Prioritize A/B updates by default
+35e873d Revert "Updater: layout: activity_updates: add spacing.."
+338f597 Updater: Rework drawables for support links
+613ad3d Updater: Update parsed info whenever data is refreshed
+51f7f45 Updater: Properly add visible strings
+ed07dda Updater: add support links and some more info
+2566cd1 Updater: Use headline font for activity header
+e3ff4bc Updater: adapt to new changelog url
+4688e56 Updater: Hide recovery update option by default
+38807dc Updater: Nuke Lineage's website on installation blocked dialog
+63afdb2 Updater: Initial adaption for crdroid
+11d8045 Updater: Change package name to avoid conflict
+dbd4736 Updater: add support for local updates
+91fdba9 Updater: Ship as crdroid updater
+
+   * packages/apps/WallpaperPicker2
+cbac4c4 WallpaperPicker2: Use custom font styles for LS preview
+
+   * packages/apps/crDroidSettings
+79288de New Crowdin updates (#902)
 
    * packages/inputmethods/LatinIME
 6b3d13bf4 LatinIME: Bring in the new icon
@@ -753,6 +975,9 @@ b9b951a92 LatinIME: Add libjni_latinimegoogle for swype
 68febeae8 Fix NPE in KeyboardTheme
 4a8377c48 Latin IME bug with deleted text will reappear after screen orientation changes
 b06b33531 LatinIME: Fix to English dictionary can be added after deleting
+
+   * packages/inputmethods/LeanbackIME
+3aa3464 LeanbackIME: Bring in the new icon
 
    * packages/modules/Permission
 ded63b0a9 PermissionController: Bring in the new icon
@@ -771,6 +996,9 @@ dd59548f MediaProvider: Bring in the new icon
 
    * packages/resources/devicesettings
 333af78 DeviceSettings: Bring in the new icon
+
+   * packages/screensavers/PhotoTable
+2e7a636 PhotoTable: Bring in the new icon
 
    * packages/services/Telecomm
 3d28deeb7 Telecomm: Bring in the new icon
@@ -836,6 +1064,9 @@ fa096a69 config: Disable GMS OTA popup
 8a259572 config: Include vendor/crowdin overlays
 d3e7d55a crdroid: Bump to version 8.4
 
+   * vendor/nxp/opensource/commonsys/packages/apps/Nfc
+4bee16f2 Nfc: Bring in the new icon
+
    * vendor/qcom/opensource/commonsys/system/bt
 a508d70ea Add support to force disable enhanced sco commands
 336e28116 Don't advertise dual channel mode support in any case
@@ -848,240 +1079,39 @@ a508d70ea Add support to force disable enhanced sco commands
 ====================
 
    * android
-71a2001 manifest: Untrack qcom sepolicy
 7edca5d Merge 'lineage-19.1' into 12.1
 acda4b1 manifest: android-12.1.0_r2 -> android-12.1.0_r4
 
    * bootable/recovery
-dd6d76e9 recovery: Only warn on SPL downgrade
-c32db046 recovery: Skip verifying packages altogether
-a810bf3a Revert "recovery: New install/progress animation"
-fc9f57a3 recovery: rebrand to crDroid
-0fb3ac40 recovery: Drop useless version date
-5794056d recovery: Switch to crDroid props
-a79548b3 recovery: Make recovery usable on user builds
+9b31fdb6 volume_manager: Move bind/mount failure from ERROR to WARN
 
    * build/make
-c0295a34cb Use Unix epoch time for build number
-03ad3691a3 core: Disable Dalvik lock contention logging
-02efb3fae9 combo: Add cortex-a76 to known v8-2a cores
-9e7164027f envsetup: Prefer setting ccache compress as command line parameter
-1e0e133743 Automatically set CCACHE_EXEC to the system's ccache
-c4350cc707 build: execute changelog generator script
-cf11ba2061 build: Add ANSI name and build info
-dfae58acb7 Make build ID simple
-6d1aa0e8bb build: Always use release-keys
-0948524427 build: Add backuptool by default
-070a9d281e envsetup: Automatically set CCACHE_EXEC to the system's ccache
-fd38ec2b5c build: Add ro.crdroid.device
 8f41972a5f Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
 
    * frameworks/av
-6a671cdb97 av: Remove restrictions for system audio record [2/2]
-f28d51ed50 Add support per-app volume [1/3]
-b20432bf59 Increase max dimensions for mpeg4 decoder in media_codecs_sw.xml
-0106e84254 Select low latency path during voice call for voice stream
-d7abfa63cd Fix -Wbitwise-instead-of-logical
-e523a4a5b2 WifiDisplaySource: allow overriding max wfd resolution with prop
-0692e5eeca GraphicBufferSource: Enable timestamp snapping in timelapse mode
-9860280e97 libstagefright: Allow HFR-60 in HAL-3 recording
-505a696f07 libaudioclient: fix deadlock during apm initialization
-9692326662 aaudio: set primary flag for AAUDIO_PERFORMANCE_MODE_NONE
-a7e5a64c01 Add NULL check to popFromStashAndRegister.
-b67e62e674 CCodec: Fix null check
-b92161e16b codec2: Avoid invalid access to output format while print
-5948792d34 codec2: add smoothfactor when checking n-th work
-58c7de0b1a CCodec: fix handling buffers in extra slots
-3d79b974f7 CCodec: FrameReassembler to accept 0-size frames
-b06dfa6422 CCodec: convert audio decoder output PCM format
-892de437f6 Codec2: Detect and release component if the client process terminates
-b1ff84f372 C2SoftDec: Align stride to 128 for avc, hevc and mpeg2 decoders
-b6ccfc42c6 audiopolicy: engineconfigurable: prevent illegal map access
-c2e80612e5 Fix logic error in SkipCutBuffer.cpp
-8c15548a06 av: Remove assert if set preview target fails with CameraSource
-cca794b2a2 audioflinger: fix missing track metadata
-431630e0e9 Duration field is 64 bits
-8e4afec376 audio: Fix AudioTrack stuck while interrupting waitStreamEndDone
-2249848071 codec2: a workaround to solve backward compatibility issue
-b9d364b7a6 libstagefright: Configure camcorder encoder session with "CONFIGURE_FLAG_USE_BLOCK_MODEL" flag
-ac3b26e5ba camera: Workaround for GCC-compiled HAL3 drivers
-30eb800ae8 apex: Replace writepid with task_profiles command for cgroup migration
-b717957b5b mediaextractor: Replace writepid with task_profiles command for cgroup migration
-c5ed287add mediacodec: Replace writepid with task_profiles command for cgroup migration
-bb89da553c codec2: Replace writepid with task_profiles command for cgroup migration
-a27f63afc9 drmserver: Replace writepid with task_profiles command for cgroup migration
-43147d1487 clearkey: Replace writepid with task_profiles command for cgroup migration
-2e4dfeadb3 MediaMetrics: fix error for compiler update
-b138965401 Suppress ordered-compare-function-pointers warning
-4ea7b74a97 Track elapsed time for 'waitStreamEnd' timeout
-c1ee164c61 C2 decoders: Workaround for cases where RGBA1010102 isn't supported
-9457ec6109 av: disable some logspilling during playback
-a0e364fcb3 libstagefright: Fix memory leak due to lock timeout
-a8f214c847 libstagefright: use 64-bit usage for native_window_set_usage
-d20d3b784e libstagefright: Free buffers on observer died
-30079d073b stagefright: ACodec: Resolve empty vendor parameters usage
-a618a3919c stagefright: omx: Don't signal dataspace change on legacy QCOM
-8f1f182bad libstagefright: Support YVU420SemiPlanar camera format
-68b0b45693 nuplayer: Avoid crash when codec fails to load
-d22792a5a5 WifiDisplaySource: raise supported resolution to 1920x1080p60
-4c6ca66b36 camera/media: Support legacy HALv1 camera in mediaserver
-ee2f8d3568 libcameraservice: add TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB
-e35286938e Camera: Fix ZSL_STILL_CAPTURE condition
-8e6d214c02 Camera: Avoid roundBufferDimensionsNearest for AIDE2 YUV streams
-dd82910c43 Camera: Flush Improvements - Result drain optimization
-763a861dda Merge rest of privileged client camera stream bypass
-e375f2db10 Camera: Master callback mode support for MCX raw
-40776766c0 Camera: Master callback mode support for MCX raw
-79cd90e2b6 Camera: Support raw stream creation for priviledged APPs
-334da9fef4 camera: Allow devices to load custom CameraParameter code
-16afbfb949 camera: include: Don't override possible overlayed header
-732326c3c4 camera: Don't segfault if we get a NULL parameter
-e1d591b7c6 Camera: Miscellaneous fixes in QDataCallback and binder death scenarios.
-8c06782335 camera: Allow to use boottime as timestamp reference
-070acd3c8c Request to reset effect buffer in clearInputBuffer
-9c68a514bf Camera: Add support for preview frame fd
-bfdc787537 stagefright: add changes related to high-framerates in CameraSource
 afb59e88fb Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
 
    * frameworks/base
 03c977a0697e Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
 
-   * lineage-sdk
-14dce9e9 Battery light: 100% charged level (3/3)
-51a31a76 Network traffic mode for status bar [1/3]
-2d006c51 NotificationLights: Allow overriding for all apps [1/2]
-1d875f5d Add toggle to allow advanced restart on secured lockscreen[1/2]
-57a42cb7 lineage-sdk: Enable advanced reboot by default
-d0016ed2 sdk: Add On-The-Go Mode to power menu constants
-f2ef9026 Add settings for brightness slider improvements
-25418b54 Add more device key actions [1/3]
-ac49ce9d Add device key action to take screenshot [1/3]
-b2be11dc Add device key action to toggle flashlight [1/3]
-fb1ad600 lineage-sdk: Remove setting loading for FORCE_SHOW_NAVBAR
-895daaa1 Allow value to hide the clock
-4b5eeabb Allow value 3 for status bar quick pull down
-3f2fccd3 lineage-sdk: Try loading default setting value for switch
-d300dc86 sdk: Kill los versioning
-b4c2bdd6 sdk: Set summary automatically if required
-707a5c69 sdk: Kill trust interface hint on first boot
-0731ae43 crdroid: Do better for version pref
-d6d57c6d Disable by livedisplay by default
-6454bca1 sdk: Map to ro.modversion
-46b76e3c Ship as crDroid based on LOS
-
-   * packages/apps/CellBroadcastReceiver
-18377dd9 CellBroadcastReceiver: Bring in the new icon
-
-   * packages/apps/DeskClock
-c06840e23 DeskClock: Bring in the new icon
-62092ee76 DeskClock: Remove compatibility to old APIs
-d3a3ae6d8 DeskClock: Material Me? No YOU!
-57f87efdf DeskClock: Remove legacy support
-c95de5d77 DeskClock: Fix left button display
-f67538bcb DeskClock: Add FLAG_IMMUTABLE
-9f480689d DeskClock: Add gradle
-a9a9f47ef DeskClock: Make sure int values are unique
-0864b85fc DeskClock: Remove unused drawables
-
-   * packages/apps/Dialer
-44dd9d3b4 Dialer: Bring in the new icon
-3f0cabf90 Dialer: use Material You colors
-334ee4619 Fix Dialer memory leaks
-5cb689541 Dialer: Add option to disable proximity sensor
-1d15f10b6 Dialer: Fix video call simulation
-b54fe36ed Dialer: CallLogFragment: Move Un-registering call log observer to destroy
-3af1838ad Dialer: Add autorecord feature
-1d2e3b18f Dialer: CallRecordingAutoMigrator: Handle all exceptions
-36a037cfc Dialer: Make recording names sortable
-7382f2c59 Dialer: Enable call recording for all
-
-   * packages/apps/EmergencyInfo
-5e4d19c EmergencyInfo: Bring in the new icon
-
-   * packages/apps/Etar
-c19481c1 Etar: Bring in the new icon
-ef48cfb3 Etar: Use system theme by default
-
-   * packages/apps/Launcher3
-fda4138560 New Crowdin updates (#221)
-
-   * packages/apps/LineageParts
-8d6d4ff Trust: Add option to always disable USB gadgets
-8fe61b5 Update color mode preview from Android 12
-72858b4 Charging Sounds: Consider null uri as silent
-2e4cff9 Move Swap capacitive buttons to Settings [3/3]
-317f236 Disable unused components
-ea2c3c6 Kill redundant search fun party
-ae5addf Make trust interface less boring
-5899e8f Add initial crDroid stats support
-af4a8a0 stats: Mod version switched to crdroid version
-98300e5 Ship as crDroid based on LOS
-
-   * packages/apps/Messaging
-3dcb704 Messaging: Update checkmark PNG drawable with XML drawable
-6315da7 Messaging: remove unused drawables
-934a008 Messaging: use Material You colors
-aeb6505 Add support for text/vCard and text/vCalendar MIME type
-a4f21e8 Messaging: Bring in the new icon
-
    * packages/apps/Nfc
-45a7d4e9 Nfc: Bring in the new icon
-0d000706 NativeNfcTag: Treat MIFARE_CLASSIC same as NFC_A in getTechExtras()
 e4cbc86f Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
-
-   * packages/apps/Profiles
-f37e961 Profiles: Add missing bluetooth permission to fix crash
 
    * packages/apps/Settings
 69850f398b Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
 7fe361d94f Automatic translation import
 
    * packages/apps/SetupWizard
-04b3198 SetupWizard: Bring in the new icon
-3bbfafd Eye see what you did there
-4dbe94e SetupWizard: Bring it on our side
-435dec8 SUW: fix a crash in PhoneMonitor
-deae4f8 SetupWizard: Use correct updater package
-ddfa20b Ship as crDroid based on LOS
 91dbfcb Automatic translation import
 
-   * packages/apps/Tag
-95ba142 Tag: Bring in the new icon
-
-   * packages/apps/Updater
-d18a2f2 New translations (#24)
-a7237b5 Update Crowdin configuration file
-c2d4030 Updater: Move strings for translation
-56ec944 Updater: Prioritize A/B updates by default
-35e873d Revert "Updater: layout: activity_updates: add spacing.."
-338f597 Updater: Rework drawables for support links
-613ad3d Updater: Update parsed info whenever data is refreshed
-51f7f45 Updater: Properly add visible strings
-ed07dda Updater: add support links and some more info
-2566cd1 Updater: Use headline font for activity header
-e3ff4bc Updater: adapt to new changelog url
-4688e56 Updater: Hide recovery update option by default
-38807dc Updater: Nuke Lineage's website on installation blocked dialog
-63afdb2 Updater: Initial adaption for crdroid
-11d8045 Updater: Change package name to avoid conflict
-dbd4736 Updater: add support for local updates
-91fdba9 Updater: Ship as crdroid updater
-
    * packages/apps/WallpaperPicker2
-cbac4c4 WallpaperPicker2: Use custom font styles for LS preview
 618cbff Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
 
    * packages/apps/crDroidSettings
-79288de New Crowdin updates (#902)
-
-   * packages/inputmethods/LeanbackIME
-3aa3464 LeanbackIME: Bring in the new icon
+7e70761 crdroid: Smart Pixels [2/2]
 
    * packages/providers/MediaProvider
 ff10e25a Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
-
-   * packages/screensavers/PhotoTable
-2e7a636 PhotoTable: Bring in the new icon
 
    * packages/services/Telecomm
 1f60a09c5 Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-12.1.0_r4
@@ -1093,7 +1123,6 @@ ff10e25a Merge tag 'android-12.1.0_r4' into staging/lineage-19.1_merge-android-1
 a526568 Scape apostrophes
 
    * vendor/nxp/opensource/commonsys/packages/apps/Nfc
-4bee16f2 Nfc: Bring in the new icon
 737fb2d8 Do not set default contactless application without user interaction
 
    * vendor/qcom/opensource/commonsys/system/bt
@@ -1102,6 +1131,9 @@ dc5a5a3cc Security fix OOB read due to invalid count in stack/avrc/avrc_pars_ct
 ====================
      04-05-2022
 ====================
+
+   * external/ant-wireless/ant_client
+ccd3655 ant_client: Bring in the new icon
 
    * frameworks/av
 e9cdf1ad6c cameraserver: fix deadlock scenario in torchModeStatusChanged callback.
@@ -1114,9 +1146,47 @@ d0f4663 AudioFX: Add NPE check to prevent crash
 6e500e7 AudioFX: Bring in the new icon
 5ee767c Add exported flags in manifest
 
+   * packages/apps/DocumentsUI
+2761d5f6d DocumentsUI: Bring in the new icon
+
+   * packages/apps/ExactCalculator
+f7fb317 ExactCalculator: Bring in the new icon
+
+   * packages/apps/Gallery2
+495f1c910 Gallery2: Bring in the new icon
+
+   * packages/apps/Stk
+82c6e93 Stk: Bring in the new icon
+
    * packages/apps/crDroidSettings
-7e70761 crdroid: Smart Pixels [2/2]
 0f57ab3 Feature: reticker [2/2]
+
+   * packages/providers/BlockedNumberProvider
+56bad62 BlockedNumberProvider: Bring in the new icon
+
+   * packages/providers/BookmarkProvider
+0730b17 BookmarkProvider: Bring in the new icon
+
+   * packages/providers/CalendarProvider
+5f3599f CalendarProvider: Bring in the new icon
+
+   * packages/providers/CallLogProvider
+51e50de CallLogProvider: Bring in the new icon
+
+   * packages/providers/ContactsProvider
+ca0cafa3 ContactsProvider: Bring in the new icon
+
+   * packages/providers/TelephonyProvider
+bf5ad3a TelephonyProvider: Bring in the new icon
+
+   * packages/services/Mms
+80caf7b Mms: Bring in the new icon
+
+   * packages/services/Telephony
+1e092c10b Telephony: Bring in the new icon
+
+   * packages/wallpapers/LivePicker
+235633b LivePicker: Bring in the new icon
 
    * vendor/lineage
 a34789c4 overlay: Update configs from pixel
@@ -1155,80 +1225,6 @@ c04878f6 crdroid: Remove TrebuchetOverlay
 cbd50f5 Track our fork of Gallery2
 b3edf18 Track vendor/crowdin
 
-   * external/ant-wireless/ant_client
-ccd3655 ant_client: Bring in the new icon
-
-   * packages/apps/DocumentsUI
-2761d5f6d DocumentsUI: Bring in the new icon
-
-   * packages/apps/ExactCalculator
-f7fb317 ExactCalculator: Bring in the new icon
-
-   * packages/apps/Gallery2
-495f1c910 Gallery2: Bring in the new icon
-69d12abb1 Gallery2: Fix black on black text
-b850b7dba [LSC] Add LOCAL_LICENSE_KINDS to packages/apps/Gallery2
-8f2a975d2 Revert^2 "Add <uses-library> information."
-cb798c3f8 AOSP/Gallery2 - Update language to comply with Android's inclusive language guidance.
-8006e983f Fix Gallery keeps stopping issue when edit and save a picture.
-a0401da8b Revert "Gallery2: Edit picture during mount SD"
-42016dc1c Add an exported flag in manifest
-e2c4a1458 Add explicit dependencies on jni_headers
-6e241bccd Convert to Android.bp
-e7892a819 Remove renderscript filters
-7722ea998 Rename package name back to com.android.gallery3d
-
-   * packages/apps/Settings
-a60eef3b5b Settings: Fix NPE when launching accessibility settings from GMS SUW
-222821fca4 Settings: Allow using legacy VPN types
-6d1f2a5e54 Settings: Fix the failing strings
-
-   * packages/apps/SetupWizard
-0fa8417 NavigationSettings: Show the checkbox if requested during the hide animation
-
-   * packages/apps/Stk
-82c6e93 Stk: Bring in the new icon
-
-   * packages/providers/BlockedNumberProvider
-56bad62 BlockedNumberProvider: Bring in the new icon
-
-   * packages/providers/BookmarkProvider
-0730b17 BookmarkProvider: Bring in the new icon
-
-   * packages/providers/CalendarProvider
-5f3599f CalendarProvider: Bring in the new icon
-
-   * packages/providers/CallLogProvider
-51e50de CallLogProvider: Bring in the new icon
-
-   * packages/providers/ContactsProvider
-ca0cafa3 ContactsProvider: Bring in the new icon
-
-   * packages/providers/TelephonyProvider
-bf5ad3a TelephonyProvider: Bring in the new icon
-
-   * packages/services/Mms
-80caf7b Mms: Bring in the new icon
-
-   * packages/services/Telephony
-1e092c10b Telephony: Bring in the new icon
-
-   * packages/wallpapers/LivePicker
-235633b LivePicker: Bring in the new icon
-
-   * vendor/crowdin
-77d6276 Automatic translation import
-
-   * vendor/lineage
-8ac7d312 build: tasks: kernel: Rework kernel fragments handling
-
-====================
-     04-03-2022
-====================
-
-   * build/make
-494b504bb2 Disable Traceur for non eng-builds
-
    * frameworks/base
 654c5633fc14 Automatic translation import
 
@@ -1259,6 +1255,19 @@ a1c9b827 Automatic translation import
    * packages/apps/FlipFlap
 ac40bf1 Automatic translation import
 
+   * packages/apps/Gallery2
+69d12abb1 Gallery2: Fix black on black text
+b850b7dba [LSC] Add LOCAL_LICENSE_KINDS to packages/apps/Gallery2
+8f2a975d2 Revert^2 "Add <uses-library> information."
+cb798c3f8 AOSP/Gallery2 - Update language to comply with Android's inclusive language guidance.
+8006e983f Fix Gallery keeps stopping issue when edit and save a picture.
+a0401da8b Revert "Gallery2: Edit picture during mount SD"
+42016dc1c Add an exported flag in manifest
+e2c4a1458 Add explicit dependencies on jni_headers
+6e241bccd Convert to Android.bp
+e7892a819 Remove renderscript filters
+7722ea998 Rename package name back to com.android.gallery3d
+
    * packages/apps/Jelly
 4d0e4ef Automatic translation import
 
@@ -1268,7 +1277,6 @@ ac40bf1 Automatic translation import
 977cbf151d Launcher3: Use same corner radius dimens for searchboxes
 09fde66d7c Launcher3: style grid drop down preference accordingly
 64c3dbae3a Launcher3: make sure getImeBgTaskbar value gets reset when going to launcher
-5e5fbe44e2 New Crowdin updates (#218)
 
    * packages/apps/LineageParts
 ebf6707 Automatic translation import
@@ -1282,11 +1290,16 @@ a258483 Automatic translation import
    * packages/apps/Recorder
 9ba88cb Automatic translation import
 
+   * packages/apps/Settings
+a60eef3b5b Settings: Fix NPE when launching accessibility settings from GMS SUW
+222821fca4 Settings: Allow using legacy VPN types
+6d1f2a5e54 Settings: Fix the failing strings
+
+   * packages/apps/SetupWizard
+0fa8417 NavigationSettings: Show the checkbox if requested during the hide animation
+
    * packages/apps/Updater
 6fe0ac8 Automatic translation import
-
-   * packages/apps/crDroidSettings
-8b7b423 New Crowdin updates (#899)
 
    * packages/inputmethods/LatinIME
 8b3ffa1fa Automatic translation import
@@ -1297,12 +1310,31 @@ a258483 Automatic translation import
    * packages/resources/devicesettings
 4a3d4df Automatic translation import
 
-   * vendor/addons
-aa15445 addons: Add SettingsIntelligence prebuilt
-9e028b0 addons: Remove outdated app icon overlays
+   * vendor/crowdin
+77d6276 Automatic translation import
+
+   * vendor/lineage
+8ac7d312 build: tasks: kernel: Rework kernel fragments handling
 
    * vendor/qcom/opensource/fm-commonsys
 2a94171 Automatic translation import
+
+====================
+     04-03-2022
+====================
+
+   * build/make
+494b504bb2 Disable Traceur for non eng-builds
+
+   * packages/apps/Launcher3
+5e5fbe44e2 New Crowdin updates (#218)
+
+   * packages/apps/crDroidSettings
+8b7b423 New Crowdin updates (#899)
+
+   * vendor/addons
+aa15445 addons: Add SettingsIntelligence prebuilt
+9e028b0 addons: Remove outdated app icon overlays
 
 ====================
      04-02-2022
@@ -1310,6 +1342,7 @@ aa15445 addons: Add SettingsIntelligence prebuilt
 
    * android
 5d618d0 Revert "manifest: Track lawnicons"
+c2070dd manifest: Track SimpleDeviceConfig
 
    * art
 3242f2ea22 Avoid Use-After-Free risk when dump backtrace for long contending lock.
@@ -1319,6 +1352,9 @@ aa15445 addons: Add SettingsIntelligence prebuilt
 52fc2a450e Introduce FindSuperMethodToCall to find the target of a super call.
 fa1d6d99c0 Do not create useless copied methods for interfaces.
 7e5f471576 Do not mark large objects for evacuation
+
+   * device/lineage/sepolicy
+ac642cc sepolicy: Label skip unconfigure prop
 
    * device/qcom/sepolicy
 83f4fd8e4 generic: Don't dontaudit vendor_persist_camera_prop read denials
@@ -1332,10 +1368,18 @@ f77cc4252 Merge pull request #5 from ShevT/12.1
 17e52bb6f0 Launcher3: Import remaining icons from lawnicons
 028564af9f Launcher3: Update themed icons for launcher
 79591d36b0 Launcher3: Add themed icons for launcher
+37aba071b3 New Crowdin updates (#216)
+39eeab036d Launcher3: Fix gesture navigation fail to move to bottom
 
    * packages/apps/TvSettings
 be420db21 Revert "privacy: Hook Trust with LineageParts"
 a3ac2d4db DevelopmentFragment: Rely on ADBRootService::isSupported()
+
+   * packages/apps/crDroidSettings
+81b76fc New Crowdin updates (#896)
+
+   * vendor/addons
+0054938 addons: Use PRODUCT_PACKAGE_OVERLAYS
 
    * vendor/qcom/opensource/usb
 6aec33b usb: Add support for SEC specific enableUsbDataSignal path
@@ -1344,11 +1388,7 @@ a3ac2d4db DevelopmentFragment: Rely on ADBRootService::isSupported()
      04-01-2022
 ====================
 
-   * android
-c2070dd manifest: Track SimpleDeviceConfig
-
    * device/lineage/sepolicy
-ac642cc sepolicy: Label skip unconfigure prop
 2d20e40 Merge pull request #16 from ShevT/12.1
 64459f9 Allow apps to read auxiliary camera properties
 
@@ -1358,19 +1398,9 @@ ac642cc sepolicy: Label skip unconfigure prop
    * lineage-sdk
 229282cd TrustInterfaceService: Extend onboarding notification to ATV
 
-   * packages/apps/Launcher3
-37aba071b3 New Crowdin updates (#216)
-39eeab036d Launcher3: Fix gesture navigation fail to move to bottom
-
    * packages/apps/TvSettings
 7aab0b227 privacy: Hook Trust with LineageParts
 d8729f0fc TVTrustPreferences: Remove unused isTelephony method
-
-   * packages/apps/crDroidSettings
-81b76fc New Crowdin updates (#896)
-
-   * vendor/addons
-0054938 addons: Use PRODUCT_PACKAGE_OVERLAYS
 
    * vendor/lineage
 363eeb55 partner_gms: Support makefile variants for GMS variants
@@ -1385,6 +1415,9 @@ d8729f0fc TVTrustPreferences: Remove unused isTelephony method
    * external/chromium-webview
 daa29c1 Update arm{,64} Chromium Webview to 100.0.4896.58
 
+   * packages/apps/Camera2
+c8f7b2f3b Remove Help & Feedback option from filmstrip
+
    * packages/apps/SetupWizard
 2c96322 SetupWizardUtils: Remove unused isMobileDataEnabled method
 
@@ -1395,21 +1428,7 @@ daa29c1 Update arm{,64} Chromium Webview to 100.0.4896.58
    * frameworks/base
 3edf088aa01b VolumeDialog: Display default row when active row is notification
 
-   * packages/apps/Camera2
-c8f7b2f3b Remove Help & Feedback option from filmstrip
-
    * packages/apps/crDroidSettings
 99ceecf Merge pull request #898 from ShevT/12.1
 9343fae crdroid: Set "Screen Off UDFPS" off by default [2/2]
-
-====================
-     03-29-2022
-====================
-
-   * device/lineage/car
-fec67e9 Automotive uses AVRCP controller requiring this prop
-
-   * external/arm-optimized-routines
-0123815 AOR: remove MTE versions of strcpy/stpcpy/strcmp/strncmp
-50a50ae Merge branch 'master' of https://github.com/ARM-software/optimized-routines into 12.1
 
