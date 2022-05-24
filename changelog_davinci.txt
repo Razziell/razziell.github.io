@@ -5,20 +5,163 @@ Device maintainer: Razziell
 Required firmware: Latest Global
 
 ====================
+     05-24-2022
+====================
+
+   * frameworks/base
+f21883f9c64e SystemUI: Show notification row when it's unlinked to ringer volume
+8eb8ff7b05d5 core: Wipe package cache on upgrade even on user build
+18512bfddeb8 base: limit direct share targets to reduce lag
+7a0f74c22902 Package installer: show current and new version on apk installation
+19f4c933c754 base: rescuce party: check isDisabled on all public API
+8f7a1cb184be audio: Fix possible NullPointerException when DEBUG is true
+6188a61873bf frameworks/base: Provide required permission for cellbroadcastreceiver
+76bf4ef7f405 SystemUI: Re-evaluate system theme on UI mode change
+
+   * hardware/qcom-caf/common
+de147ee common: Update matrix to LA.QSSI.12.0.r1-07600-qssi.0
+
+   * packages/apps/Dialer
+a65330e31 fixup! Add a permission to guard receiving intents in StatusSmsFetcher.
+
+   * packages/apps/Launcher3
+51cca6b7fc Merge pull request #233 from ShevT/12.1
+
+   * packages/apps/Messaging
+71a4cbb Merge pull request #3 from ShevT/12.1
+1b4e892 messaging: Monetize more..
+bf9027f Correct APNs for Carolina West Wireless
+
+   * packages/apps/Settings
+974e750a11 Merge pull request #122 from ShevT/12.1
+13e237c51b Call CardDatabaseHelper.getInstance() when used and not in onCreate
+e268745b29 Fix bluetooth percentage not showing on battery widget
+4a25415c8a Merge pull request #121 from ShevT/12.1
+
+   * packages/apps/Updater
+2559569 Updater: switch to my OTA option
+
+====================
+     05-23-2022
+====================
+
+   * android
+1d83074 manifest: Track libjpeg-turbo
+
+   * art
+cfae0c16bb Merge pull request #6 from ShevT/12.1
+9056ef489d Increase test runner thread count for target.
+
+   * bionic
+120940afc Merge pull request #10 from ShevT/12.1
+c49b3f4cd Fix it to call the lambda function
+0caff5a3e mntent_test: don't assume /proc isn't the first mount.
+
+   * frameworks/av
+0ee31faf98 Merge pull request #27 from ShevT/12.1
+16d5414a4c libstagefright: Fix HDR profile mapping
+8d253790cb CCodecConfig: apply KEY_ROTATION for image domain
+e64e6a0d06 Camera: Master callback mode support for MCX raw
+
+   * frameworks/base
+e8128c99c092 Revert "UIModeTile: Collapse after change UI mode"
+4b5bac24afb3 SystemUI: Reset QS on UI mode change
+54424f507fc3 SystemUI: Use color accent for charging animation
+ab5043076508 Merge pull request #840 from ShevT/12.1
+03f61fa55b2b Fix binderDied of an app can not be triggered in some cases.
+b5c33d4b1715 toString() of StringBuilder need to create a array copy with count, if no more memory could be made available by the garbage collector, "free list large object space" maybe oom.
+81036d6929a1 Delete all templates that do not match
+abd27425384e Do not get portInfo if physical address is 0x0000
+cbc761bf54da Fix indicator can't disappear in some cases
+05ad3e9e033c Update SysUI to be compatible with latest Jetpack libraries
+cada7c2eadf4 Don't send null data call list response
+624d07b5d530 AudioService: catch RuntimeException for IServiceManager.getService
+c7e989ecaec6 Fix ISessionControllerCallback leaks in the system_server when the far side died
+
+   * frameworks/opt/telephony
+86a78bd16 Merge pull request #7 from ShevT/12.1
+fd3893f9d Checking 'phoneId' when sim status is changed
+
+   * libcore
+6f0f5a9d4e Merge pull request #4 from ShevT/12.1
+a4cb5881f4 Discourage NativeAllocationRegistries without size
+
+   * packages/apps/GameSpace
+d1bd86b New Crowdin updates (#2)
+
+   * packages/apps/Launcher3
+572e6751b9 Launcher3: RecentsView: add null check on RemoteTargetHandle array
+6e42084d05 Launcher3: Specify hour index for clock themed icon
+262b86e757 Launcher3: Avoid NPE in TaskOverlayFactory
+
+   * packages/apps/Messaging
+25f030b Messaging: Use darker Material You shades
+
+   * packages/apps/Updater
+7b622f2 New Crowdin updates (#30)
+
+   * packages/apps/crDroidSettings
+32b047d New translations (#924)
+
+   * system/core
+37a871a6a Merge pull request #10 from ShevT/12.1
+cb6b40213 storaged: Avoid divide-by-zero in performance measurement
+ceec2228c init: fix mkdir to reliably detect top-level /data directories
+ee9954be9 init: log services requested restart
+01b6917b0 Reland "libprocessgroup: return false on failure"
+adabe0511 Simplify cgroups.json
+79c0e700a Support process path for WriteFileAction
+3c82212a3 Make task profiles easier to debug
+9a3a37535 Introduce interface class IProfileAttribute
+8bb108798 Make two error messages more detailed
+bbece6967 Use the 'override' keyword where appropriate
+392463b9d libprocessgroup: Add fd caching support for SetProcessProfiles
+bc27a9338 Make class SetTimerSlackAction easier to maintain
+0c9bfbd3f libprocessgroup: Move fd caching code into FdCacheHelper
+6ac6d5757 Align file permissions for cpufreq scaling_max_freq node
+935aa85a7 init: Add --only-if-running argument to restart command.
+
+   * system/vold
+02ed873 Merge pull request #6 from ShevT/12.1
+d40d712 vold: fix the range of stopped state of idleMaint
+
+====================
      05-22-2022
+====================
+
+   * external/libjpeg-turbo
+a83e5d6 Android.bp: add -DNO_PUTENV
+4f474fe Update libjpeg-turbo to upstream stable release 2.1.3
+3314a00 Update libjpeg-turbo to upstream stable release 2.1.2
+2a147bf Update libjpeg-turbo to 2.1.1 stable release
+9789c63 Update to latest upstream libjpeg-turbo.
+f8af8dd Update generated config file for changes in latest sources.
+df9e10b Update libjpeg-turbo to 9df5786f05c8be702f5a896b231c6e057847c18b.
+6aea18b Always use Neon.
+
+   * frameworks/base
+31bbe72050ff NetworkTraffic: Stop scheduling updates when screen off
+c320f865b20f Fix QS clock being white on light theme
+
+====================
+     05-21-2022
 ====================
 
    * packages/apps/Settings
 35daefed8f Fix icon theming for per app volume
 
-   * packages/apps/Updater
-292f053 Updater: switch to my OTA option
+   * tools/repohooks
+e0447aa clang-format: handle exit(0) w/no output from git-clang-format
+5722c92 shell: handle Path objects
 
    * vendor/addons
 e207428 addons: Include turbo_adapter sepolicy
 
+   * vendor/nxp/opensource/sn100x/halimpl
+3312a196 sn100x: halimpl: ignore autonomous mode writes if the feature is disabled
+
 ====================
-     05-21-2022
+     05-20-2022
 ====================
 
    * external/sqlite
@@ -27,23 +170,9 @@ a30c78c sqlite: Compile with O3
 a046823 sqlite: Tweak flags according to documentation
 c2a80b7 sqlite: Update to version 3.38.5
 
-====================
-     05-20-2022
-====================
-
    * frameworks/base
 44df6d1bb690 Fix dialog exit animation
 f21bb1af0980 AudioDeviceBroker: handle back to back device change requests
-8f5049ca7906 New Crowdin updates (#838)
-
-   * packages/apps/GameSpace
-4bed2a8 New Crowdin updates (#1)
-
-   * packages/apps/Launcher3
-85c0977f61 New translations (#232)
-
-   * packages/apps/crDroidSettings
-374aa56 New Crowdin updates (#922)
 
    * tools/repohooks
 4be0279 Remove usage of removeprefix
@@ -56,6 +185,7 @@ f21bb1af0980 AudioDeviceBroker: handle back to back device change requests
 b9a2deb manifest: Switch to GameSpace
 
    * frameworks/base
+8f5049ca7906 New Crowdin updates (#838)
 e8f75135ca38 Remove Google games dashboard integration
 91f59a7f738e New Crowdin updates (#836)
 580ae99b986a Update Crowdin configuration file
@@ -686,12 +816,16 @@ c7f717619cf9 build: Add Build.DATE for apps
 ce35c011ee87 base: Add stub files
 
    * packages/apps/GameSpace
-a6a8a59 Update Crowdin configuration file
+4bed2a8 New Crowdin updates (#1)
+
+   * packages/apps/Launcher3
+85c0977f61 New translations (#232)
 
    * packages/apps/Settings
 2f6bd55089 Settings: Hide Google Games Dashboard
 
    * packages/apps/crDroidSettings
+374aa56 New Crowdin updates (#922)
 57ee717 crdroid: Switch to GameSpace
 
    * vendor/lineage
@@ -701,42 +835,42 @@ a6a8a59 Update Crowdin configuration file
      05-18-2022
 ====================
 
+   * packages/apps/GameSpace
+a6a8a59 Update Crowdin configuration file
+
 ====================
      05-17-2022
+====================
+
+   * packages/apps/GameSpace
+b89d9dc GameSpace: Add toggle to turn off adb debugging
+d9a6675 GameSpace: Use settings helper for suppress fullscreen intent
+794cc35 GameSpace: Add option to customize overlay opacity
+
+====================
+     05-16-2022
 ====================
 
    * frameworks/base
 5c75eff46675 SystemUI: Catch IllegalArgumentException in updateHint()
 
    * packages/apps/GameSpace
-b89d9dc GameSpace: Add toggle to turn off adb debugging
-d9a6675 GameSpace: Use settings helper for suppress fullscreen intent
-794cc35 GameSpace: Add option to customize overlay opacity
 c146375 GameSpace: Do not hardcode in-game pref category title
 63e816e GameSpace: Add setting helper preferences
 8bf3a49 GameSpace: Improve panel view
 2c417ed GameSpace: Do not hardcode font to sans-serif
 e6d2d32 GameSpace: Clean up strings for translations
+380d013 GameSpace: Remove unnecessary assert
 
 ====================
-     05-16-2022
+     05-15-2022
 ====================
 
    * frameworks/av
 087ce399e0 libstagefright: Adding NULL check for codec instance
 
    * packages/apps/GameSpace
-380d013 GameSpace: Remove unnecessary assert
 ac24273 GameSpace: Add required commits links to the documentation
-
-====================
-     05-15-2022
-====================
-
-   * frameworks/base
-e13984d0ac0a PermissionManager: fix NPE in getIndicatorExemptedPackages
-8eba0708921c SystemUI: Add Profiles tile
-586cf47c6c20 SystemUI: Make isTablet() use correct API for getting window metrics
 
    * packages/apps/Launcher3
 f284c0fb32 New Crowdin updates (#231)
@@ -746,58 +880,4 @@ f284c0fb32 New Crowdin updates (#231)
 
    * packages/apps/crDroidSettings
 04aaa77 New Crowdin updates (#920)
-
-   * system/core
-dd336180f init.rc: Don't enable f2fs iostat by default
-
-====================
-     05-14-2022
-====================
-
-   * device/qcom/sepolicy-legacy-um
-000c877ad Label old telephony extension
-
-   * libcore
-fb8733640b Merge pull request #3 from ShevT/12.1
-34402eaf3d Revert "Backport fix to PriorityQueue.offer() for first element"
-
-   * tools/repohooks
-1d76f6a Merge "clang-format: handle exit(1) from git-clang-format"
-97805c7 Merge "rh: set REPO_ROOT to the submanifest root, if present."
-9b9f576 rh: set REPO_ROOT to the submanifest root, if present.
-
-   * vendor/addons
-8891689 addons: Use correct path for some icons
-
-====================
-     05-13-2022
-====================
-
-   * external/chromium-webview/patches
-a644f51 Update Chromium Webview to 101.0.4951.61
-
-   * external/chromium-webview/prebuilt/arm
-ad7537f Update Chromium Webview arm prebuilt to 101.0.4951.61
-
-   * external/chromium-webview/prebuilt/arm64
-cb72ff6 Update Chromium Webview arm64 prebuilt to 101.0.4951.61
-
-   * external/chromium-webview/prebuilt/x86
-a67e6c2 Update Chromium Webview x86 prebuilt to 101.0.4951.61
-
-   * packages/apps/Launcher3
-cc5baeccdd New Crowdin updates (#229)
-
-   * packages/apps/crDroidSettings
-580eb56 New Crowdin updates (#917)
-
-   * tools/repohooks
-aa268a7 clang-format: handle exit(1) from git-clang-format
-90280f4 Add support for calling directly from git, without using repo.
-
-   * vendor/lineage
-2504c595 Merge pull request #38 from Apon77/12.1
-496a34f4 Grameenphone uses APN 'gpinternet'
-c3d07c8f Merge pull request #37 from Astridxx/12.1
-d26bc45f config: Remove duplicate prop
 
