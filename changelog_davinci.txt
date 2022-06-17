@@ -5,6 +5,192 @@ Device maintainer: Razziell
 Required firmware: Latest Global
 
 ====================
+     06-17-2022
+====================
+
+   * frameworks/base
+f11760d81161 base: Add support for application downgrade [1/2]
+838b46897753 fwb: Add animations to quick settings tiles [1/2]
+96c6ebe8e5bc SystemUI: Use View.INVISIBLE instead of GONE
+1f54345d0b42 SystemUI: Toggle data usage view on QS footer [1/2]
+18812f4a8d79 SystemUI: Show daily data usage in QS footer * Refactor existing build text view
+de2949b6ee5b base: Fix black screen issue due to wallpaper decoding exceptions
+49f315b0c286 Fix JobStoreTest after adding defensive copy to NetworkRequest.Builder
+a5be21230100 Watchdog: run emergency sync before killing system
+546386048cd1 neko/Cat: Mark FLAG_IMMUTABLE PendingIntent with FLAG_MUTABLE
+d22f62d2141a Delete skipCallbacks when Exception dispatchInputEvent beacuse calling finishInputEvent twice will cause 'Native Crash'
+30fdb3cdea63 Move binder latency data logging to a background thread to improve performance of the main thread.
+e7291947e45c Fix the wrong of dismisssurface state under multi-threading
+ea1d11b5f1e5 Fix OOM cache app optimizer flaky test.
+836407b143b2 Fix MtpDatabase multithreading NullPointerException
+085308bd0a10 ServiceRegistry: Don't throw an exception if OEM_LOCK is missing
+a136679ac44b InputWrapper: Opt out early if session == null
+e9d6125a6114 AuthRippleController: Always finish the LightRevealScrim
+b73891330914 AuthRippleController: Only update sensor location when necessary
+329ec2db5294 Crash occured due to null pointer exception.
+817800abadae frameworks: Fix null pointer issue in ArrayAdapter
+4fd30788380a view: add null check for dispatch touch view
+887aa4584cdf base: log spill when dragging
+981308bf7a12 AlarmManagerService: Reduce log level wtf -> w
+ce1da0712da2 SystemUI: Fix pulseOut fails before fully pulsing
+605721c44068 ScrimController: User Tuner API to apply custom alpha
+5e40486411ca SystemUI: Transparent QS customization
+
+   * packages/apps/Updater
+70231a2 Updater: switch to my OTA option
+
+   * packages/apps/crDroidSettings
+77449402 crdroid: Add support for application downgrade [2/2]
+1a37b159 crdroid: Add animations to quick settings tiles [2/2]
+c762a9e6 crdroid: Toggle data usage view on QS footer [2/2]
+4322653a crdroid: Transparent QS customization
+
+====================
+     06-16-2022
+====================
+
+   * device/lineage/car
+78fba94 car: Set PRODUCT_IS_AUTO to true
+
+   * external/arm-optimized-routines
+901f340 arm-optimized-routines: Switch to -O3
+
+   * external/sqlite
+8253ed5 android, dist: Android.bp: switch to O3
+
+   * frameworks/base
+b71f4d1a9151 fw/b torch: add haptic feedback
+44dbada9e032 SystemUI: add haptic feedback for qs tiles
+1b19aa93ed58 SystemUI: Fix NPE for per-app volume
+d3b45ab4430a SystemUI: Make popup menus more rounded
+2d910bf1178e SystemUI: Disable blur wakeup animation
+b56303a60bdd Battery Styles: Hide plus when showing battery percentage inside icon
+64a750d7ed28 BatteryMeterView: Move null check to the beginning of the method.
+
+   * system/sepolicy
+877f559a5 Merge 'lineage-19.1' into 12.1
+
+====================
+     06-15-2022
+====================
+
+   * external/freetype
+e407b037d Android: Build with -O3
+
+   * external/harfbuzz_ng
+8fc08fc51 Android: Build with -O3
+
+   * frameworks/base
+766832910571 fixup! Allow lineage resources package to be overlayed by RRO packages
+
+   * packages/apps/Settings
+ed20d545ed Merge pull request #123 from ShevT/12.1
+
+   * system/sepolicy
+f04386d2c sepolicy: allow recovery to operate devpts and kmsg
+
+   * vendor/lineage
+cb06a7b3 config: Cleanup and update common props from Pixel
+0c6cfcff config: Optimize Lanucher3 and Settings for speed
+ac440add overlay: Exclude ThemePicker from RRO
+
+====================
+     06-14-2022
+====================
+
+   * android
+300c586 manifest: Untrack SettingsIntelligence
+
+   * build/make
+161fb2ab1e Don't build useless html viewer
+9017e70a20 envsetup: Fix indentation in ccache code snippet
+abe07849c2 envsetup: export the CCACHE_DIR if its not set
+d4d6f98137 tools: Let adb secure check depend on "==0" rather than "!=1"
+4fe2094f0d Use Unix epoch time for build number
+3edd4c7477 core: Disable Dalvik lock contention logging
+b40aa5e289 combo: Add cortex-a76 to known v8-2a cores
+e4d5ccaacc envsetup: Prefer setting ccache compress as command line parameter
+b85bd74b5b Automatically set CCACHE_EXEC to the system's ccache
+024d71a84f build: execute changelog generator script
+c46e675459 build: Add ANSI name and build info
+6e3f559010 Make build ID simple
+a20e022f26 build: Always use release-keys
+13e4b96ace build: Add backuptool by default
+2530ec3eba envsetup: Automatically set CCACHE_EXEC to the system's ccache
+9d739ffa8f build: Add ro.crdroid.device
+26aa57154c Add vendor-bootconfig.img to target-files-package
+
+   * device/lineage/atv
+1dd3b22 Standardize wake keys on wade's BT remote
+389ee9b Adjust wade's BT remote keylayout to match common keyhandler
+47d3ede atv: Remove duplicate PRODUCT_PACKAGES entries
+47b741e Import idc and kl for wade's BT remote
+
+   * device/lineage/sepolicy
+e955ecf Revert "common: Add Flipendo rules"
+8ffdbe2 Allow apps to access usap pool
+474a4ac Revert "Allow apps to access usap pool"
+681d679 sepolicy: Label skip unconfigure prop
+4aa6acf common: Add Flipendo rules
+aa52ac3 sepolicy: Allow Settings app to change WFD resolution
+ee8f2f2 common: allow mediaserver to get media_wfd_prop
+8a23e6a sepolicy: Fix OTA auto-flashing with encrypted f2fs
+6a14253 sepolicy: allow platform_app syslog_read
+f9d1730 Allow updater to read data files
+f62e469 Allow apps to access usap pool
+188532a sepolicy: Allow system_server to get app_zygote pgid
+fd1d4fd sepolicy: Move in pocket service sepolicy
+3a8ce5e Allow platform access for fps info
+7058d5c updater_app: Address uncrypt denials
+e78ff8f sepolicy: Allow key disabler access for platform
+cd552f9 sepolicy: Allow system_server to read and write to sysfs_battery_supply
+f368eb3 selinux: Update app name for updater
+83fc35b Update ota_update path
+
+   * packages/apps/GameSpace
+b22c6ee GameSpace: Add tiles layour for portrait mode
+
+   * packages/apps/Launcher3
+5de1bb9358 Launcher3: FeatureFlags: Disable ADAPTIVE_ICON_WINDOW_ANIM
+437b980b48 Launcher3: Always show split option in task menu
+089572f19c Launcher3: Always show screenshot in task menu
+
+   * packages/apps/Settings
+1018ed029d Settings: Optimize the selected WFD route preference summary
+f037df9704 Settings: Fix loading iconpack-based Wellbeing icon
+
+   * packages/modules/Wifi
+8a95276f4 Wifi: Add mVerboseLoggingEnabled variable
+f670ff5fe Wifi: Add ExternalCallbackTracker class
+b6050b5b4 WifiManager: Add StaState API
+b70f4606e wifi: Add StaState API
+
+   * system/update_engine
+8153851a update_engine: Always disable signature and downgrade checks
+c854991f Revert "update_engine: Run backuptool only in debuggable builds"
+
+   * vendor/lineage
+fd5e3fe7 config: Disable iorapd
+d37b59b0 config: Properly disable blur on app launch
+
+====================
+     06-13-2022
+====================
+
+   * frameworks/base
+c6e20fa99931 Fix crash with protected content with ElectronBeam/Scale screen-off animation
+a8edef62e79d Add upstream fixes to ElectronBeam screen-off animation
+
+   * packages/apps/GameSpace
+1827689 New Crowdin updates (#8)
+
+   * packages/apps/Updater
+17b0608 New translations (#31)
+
+   * packages/apps/crDroidSettings
+6b5c9c23 New Crowdin updates (#928)
+
+====================
      06-12-2022
 ====================
 
@@ -15,9 +201,6 @@ d2001cc Merge 'lineage-19.1' into 12.1
 
    * bootable/recovery
 a4e7f479 Merge 'lineage-19.1' into 12.1
-
-   * build/make
-51fb9acd38 Merge 'lineage-19.1' into 12.1
 
    * build/soong
 e9dba6c13 Merge 'lineage-19.1' into 12.1
@@ -1171,15 +1354,12 @@ e71442d ThemePicker: Clean up from CAF
 0b4c486 ThemePicker: respect color override
 f114eee ThemePicker: implement coloring in wallpaper preview fragment
 
-   * packages/apps/Updater
-5dddd89 Updater: switch to my OTA option
-
    * packages/apps/WallpaperPicker2
 8d607f2 Match lockscreen clock font preview with actual
 
    * packages/apps/crDroidSettings
-58e256f crdroid: Allow changing pickup sensor value for doze/wake up
-f197875 crdroid: Fix prefs enabling with ambient pulse
+58e256f3 crdroid: Allow changing pickup sensor value for doze/wake up
+f197875e crdroid: Fix prefs enabling with ambient pulse
 
    * packages/inputmethods/LatinIME
 f36ec0d25 LatinIME: Default to Material You theme
@@ -1323,9 +1503,6 @@ bec7d52dc Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-
      06-10-2022
 ====================
 
-   * build/make
-fef2b27e26 Merge pull request #39 from Albinoman887/vendor-bootconfig
-
    * build/soong
 f017a30c4 dumpvars: Replace ATV and Automotive vars
 
@@ -1349,6 +1526,9 @@ c15907925 Dialer: Import translations
 ====================
      06-08-2022
 ====================
+
+   * android
+2ce3276 Untrack not modified repositories
 
    * packages/apps/Dialer
 eb63d98db Dialer: Rename aicp_*.xml -> cr_*.xml
@@ -1376,168 +1556,4 @@ ff500d4ba Dialer: Material You
 ca1ef595 Add EventLog to trace the tag reusing issue
 3b4b97b3 Add methods to check tag availability
 427b35ed Nfc: Make NQNfcNci override NfcNci target
-
-====================
-     06-07-2022
-====================
-
-   * android
-2ce3276 Untrack not modified repositories
-c428eb1 manifest: android-12.1.0_r5 -> android-12.1.0_r7
-
-   * bootable/recovery
-d536eb66 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * build/make
-ee354d3b41 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-f9dd48bc19 Add vendor-bootconfig.img to target-files-package
-
-   * device/google/atv
-43d9939 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * frameworks/av
-d26b97da98 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * frameworks/native
-3a11696ab6 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * frameworks/opt/telephony
-a00904af0 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * hardware/google/pixel
-6c35546 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * hardware/google/pixel-sepolicy
-92e574f Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * hardware/interfaces
-381daeb4a Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * hardware/libhardware
-179218f8 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * hardware/qcom-caf/common
-01ed0fc Add reverse engineered nqnfcinfo binary
-
-   * packages/apps/Bluetooth
-a94909753 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Car/Settings
-4bc78d621 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/CellBroadcastReceiver
-bc578fac Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Contacts
-f8f644d94 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/DocumentsUI
-0d050d3aa Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/EmergencyInfo
-73eb032 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/GameSpace
-cdd2406 GameSpace: Redesign overlay with battery text and time views
-
-   * packages/apps/Launcher3
-e25407443d Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Messaging
-cbbb185 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Nfc
-7c346e3d Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Settings
-dcd6876993 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/Tag
-e94f27d Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/ThemePicker
-0635df4 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/TvSettings
-e0f8ceffb Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/apps/WallpaperPicker2
-ee2174f Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/modules/Connectivity
-ded73434a Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/modules/Permission
-732bd5ace Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/modules/adb
-1b1733dc Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/providers/DownloadProvider
-c992ec07 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/providers/MediaProvider
-3949b4e2 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/services/Telecomm
-7f834b58a Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/services/Telephony
-fddd43b92 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * packages/wallpapers/LivePicker
-f55523c Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * system/bt
-777c2ca72 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * system/core
-671d3ca8a Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * system/security
-d8fbb1f Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * system/sepolicy
-d30a27271 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-   * system/vold
-f449ab1 Merge tag 'android-12.1.0_r7' into staging/lineage-19.1_merge-android-12.1.0_r7
-
-====================
-     06-06-2022
-====================
-
-   * packages/apps/GameSpace
-ccc0395 GameSpace: Add battery remaining text
-161799a GameSpace: Redesign layout with time/date views
-7f30630 GameSpace: Set default panel view opacity to 100%
-ad924d5 New Crowdin updates (#6)
-7f37279 GameSpace: Fix per game configure icon on light theme
-
-====================
-     06-05-2022
-====================
-
-   * frameworks/base
-87f04da03724 Biometrics: Allow disabling of fingerprint cleanups
-
-   * packages/apps/GameSpace
-4851714 GameSpace: Add time/date in panel view
-871d4cd New Crowdin updates (#5)
-
-====================
-     06-04-2022
-====================
-
-   * packages/apps/GameSpace
-38fe62c New Crowdin updates (#4)
-
-====================
-     06-03-2022
-====================
-
-   * packages/apps/Camera2
-f67f44f1b Camera2: add QR scanner QS tile
-42293a3e8 Camera2: add QR code launcher shortcut
-8c68238f9 Camera2: import quickReader module from Snap
 
